@@ -69,18 +69,11 @@ public class OcupacaoServiceImpl implements OcupacaoService{
 
 	@Override
 	public Ocupacao update(Integer id, OcupacaoDTO dto) {
-		Ocupacao ocupacao = get(id);
+		Pessoa pessoa = getPessoa(id);
 		Ocupacao o = OcupacaoMapper.from(dto);
-		o.setId(ocupacao.getId());
-		oRepository.save(o);
-		return o;
+		o.setId(pessoa.getId());
+		o.setPessoa(pessoa);
+		return oRepository.save(o);
 		
 	}
-
-	@Override
-	public Ocupacao get(Integer id) {
-		Optional<Ocupacao> o = oRepository.findById(id);
-		return o.get();
-	}
-
 }

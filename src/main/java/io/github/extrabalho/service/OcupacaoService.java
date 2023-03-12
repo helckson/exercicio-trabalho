@@ -15,6 +15,4 @@ public interface OcupacaoService {
 	void delete(Integer id);
 	
 	Ocupacao update(Integer id, OcupacaoDTO dto);
-	
-	Ocupacao get(Integer id);
 }
