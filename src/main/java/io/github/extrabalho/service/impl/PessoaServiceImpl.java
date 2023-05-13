@@ -57,7 +57,10 @@ public class PessoaServiceImpl implements PessoaService{
 	@Override
 	public List<InformacaoCompletaDTO> getPessoas() {
 		List<Pessoa> pessoas = repository.findAll();
-		return InformacaoCompletaDTOMapper.fromList(pessoas);
+		if(pessoas.isEmpty()) {
+			throw new PessoaNaoEncontradaException("Pessoas não encontradas!");
+		} else
+			return InformacaoCompletaDTOMapper.fromList(pessoas);
 	}
 
 	@Override
@@ -77,5 +80,22 @@ public class PessoaServiceImpl implements PessoaService{
 		Pessoa p = PessoaMapper.from(dto);
 		p.setId(pessoa.getId());
 		return repository.save(p);
+	}
+
+	@Override
+	public List<PessoaDTO> procurarPorNome(String nome) {
+		List<Pessoa> pessoa = repository.findByNomeContainingIgnoreCase(nome);
+		List<PessoaDTO> dto = PessoaDTOMapper.fromList(pessoa);
+		return dto;
 	}	
+	
+//	@Override
+//	public Pessoa update(Integer id, PessoaDTO dto) {
+//		return repository.findById(id)
+//				.map(pd -> {
+//					PessoaMapper.from(dto);
+//					return repository.save(pd);
+//				})
+//				.orElseThrow(() -> new PessoaNaoEncontradaException("Pessoa nao encontrada!"));
+//	}	
 }

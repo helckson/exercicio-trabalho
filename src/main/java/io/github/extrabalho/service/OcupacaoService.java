@@ -15,4 +15,8 @@ public interface OcupacaoService {
 	void delete(Integer id);
 	
 	Ocupacao update(Integer id, OcupacaoDTO dto);
+	
+	void salvarMuitos(Integer ocupacaoID, Integer profissaoId);
+	
+	void deletarMuitos(Integer ocupacaoID, Integer profissaoId);
 }

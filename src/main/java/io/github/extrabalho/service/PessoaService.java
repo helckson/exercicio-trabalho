@@ -21,4 +21,6 @@ public interface PessoaService {
 	void delete(Integer id); 
 	
 	Pessoa update(Integer id, PessoaDTO dto);
+	
+	List<PessoaDTO> procurarPorNome(String nome);
 }

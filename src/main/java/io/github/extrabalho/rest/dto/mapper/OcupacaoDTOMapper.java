@@ -30,6 +30,7 @@ public class OcupacaoDTOMapper {
 					.inicio(o.getAnoInicio())
 					.salario(o.getSalario())
 					.idPessoa(o.getPessoa().getId())
+					.listaProfissoes(ProfissaoDTOMapper.converterLista(o.getProfissoes()))
 					.build();
 			
 			lista.add(dto);

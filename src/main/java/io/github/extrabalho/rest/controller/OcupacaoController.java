@@ -35,6 +35,19 @@ public class OcupacaoController {
 		return service.salvar(dto);
 	}
 	
+	@PostMapping("/{ocupacaoId}/profissao/{profissaoId}")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void save(@PathVariable Integer ocupacaoId,
+					@PathVariable Integer profissaoId) {
+		service.salvarMuitos(ocupacaoId, profissaoId);
+	}
+	
+	@DeleteMapping("/{ocupacaoId}/profissao/{profissaoId}")
+	public void delete(@PathVariable Integer ocupacaoId,
+			@PathVariable Integer profissaoId) {
+		service.deletarMuitos(ocupacaoId, profissaoId);
+	}
+	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Integer id) {
 		service.delete(id);

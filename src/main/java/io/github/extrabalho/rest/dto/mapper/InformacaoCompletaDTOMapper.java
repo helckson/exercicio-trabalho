@@ -2,13 +2,16 @@ package io.github.extrabalho.rest.dto.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import io.github.extrabalho.domain.entity.Ocupacao;
 import io.github.extrabalho.domain.entity.Pessoa;
 import io.github.extrabalho.rest.dto.InformacaoCompletaDTO;
 
 public class InformacaoCompletaDTOMapper {
 
 	public static InformacaoCompletaDTO from(Pessoa pessoa) {
+		
 		var dto = InformacaoCompletaDTO
 				.builder()
 				.codigo(pessoa.getId())
@@ -39,5 +42,10 @@ public class InformacaoCompletaDTOMapper {
 			lista.add(InfoCompleta);
 		}
 		return lista; 
+		
+//		List<InformacaoCompletaDTO> list = pessoa.stream()
+//				.map(InformacaoCompletaDTOMapper::from)
+//				.collect(Collectors.toList());
+//		return list;
 	}
 }
