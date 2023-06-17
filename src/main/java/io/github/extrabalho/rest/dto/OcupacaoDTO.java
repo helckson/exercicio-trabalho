@@ -2,7 +2,6 @@ package io.github.extrabalho.rest.dto;
 
 import java.util.List;
 
-import io.github.extrabalho.domain.entity.Profissao;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

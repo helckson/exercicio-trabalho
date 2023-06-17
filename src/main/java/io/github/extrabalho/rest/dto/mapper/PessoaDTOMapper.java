@@ -2,7 +2,6 @@ package io.github.extrabalho.rest.dto.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import io.github.extrabalho.domain.entity.Pessoa;
 import io.github.extrabalho.rest.dto.PessoaDTO;
